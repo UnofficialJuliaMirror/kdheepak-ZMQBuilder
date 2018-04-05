@@ -14,11 +14,6 @@ sh autogen.sh
 
 ./configure --prefix=$prefix --host=${target} --without-docs --disable-libunwind --disable-perf --disable-eventfd --without-gcov
 make && make install
-
-if [ $target == "x86_64-w64-mingw32" -o $target == "i686-w64-mingw32" ]; then
-    mkdir -p $prefix/bin
-    mv $prefix/lib/*.dll $prefix/bin
-fi
 """
 
 # These are the platforms we will build for by default, unless further
