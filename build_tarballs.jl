@@ -12,7 +12,7 @@ cd $WORKSPACE/srcdir/libzmq
 
 sh autogen.sh
 
-./configure --prefix=$prefix --host=${target} --without-docs --disable-libunwind --disable-perf --disable-eventfd --without-gcov ax_cv_cxx_compile_cxx11__std_gnupp11=no
+./configure --prefix=$prefix --host=${target} --without-docs --disable-libunwind --disable-perf --disable-eventfd --without-gcov --disable-curve-keygen ax_cv_cxx_compile_cxx11__std_gnupp11=no
 make && make install
 """
 
