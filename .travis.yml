@@ -20,7 +20,7 @@ before_script:
 - julia -e 'Pkg.clone("https://github.com/JuliaPackaging/BinaryProvider.jl")'
 - julia -e 'Pkg.clone("https://github.com/JuliaPackaging/BinaryBuilder.jl"); Pkg.build()'
 script:
-- julia build_tarballs.jl --verbose
+- julia build_tarballs.jl
 deploy:
   provider: releases
   api_key:

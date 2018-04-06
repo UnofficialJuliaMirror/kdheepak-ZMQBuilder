@@ -19,13 +19,13 @@ make && make install
 # These are the platforms we will build for by default, unless further
 # platforms are passed in on the command line
 platforms = [
-#    Linux(:i686, :glibc),
-#    Linux(:x86_64, :glibc),
-#    Linux(:aarch64, :glibc),
-#    Linux(:armv7l, :glibc),
-#    Linux(:powerpc64le, :glibc),
-#    Windows(:x86_64),
-#    Windows(:i686),
+    Linux(:i686, :glibc),
+    Linux(:x86_64, :glibc),
+    Linux(:aarch64, :glibc),
+    Linux(:armv7l, :glibc),
+    Linux(:powerpc64le, :glibc),
+    Windows(:x86_64),
+    Windows(:i686),
     MacOS()
 ]
 
