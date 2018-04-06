@@ -26,8 +26,7 @@ deploy:
   api_key:
       # Note; this api_key is only valid for JuliaInterop/ZMQBuilder; you need
       # to make your own: https://docs.travis-ci.com/user/deployment/releases/
-      # FIXME: the OAuth token here is not actually valid; need to generate a new one...
-    secure: MYqqMvfuhMOXuOYkvn9VdvHMX8jvZA4WKQ3Lyw2aFIm6wTtrxpDUFvINjYuSUZqrQNhDsjJKdhsvJcpyGoXATvY4duUQezu4ejEflB66H2rqVUaqlQ4KYP6OXfmnPSzNeDB+8mqvqBtfVZUg3aoGprKMtHH1Icmo4JiKGjZ739zAk6mE0TKxLN4GeGxrYpeyib1dk7lwWBbkH7IxKgHyDfPAqfqzoNmZgWAFUJMPoDCjOwU+3fXbZ0UiMql6pR8QCR8E2OHyg4ytTGgiuuRWbMsxosvEjNfB3s2fwLjuBJdoX4Pq1YdNDoQBQqmDeULJkgqfFz0Vp4AFAeCuTahrQmeQg8isJPIAROlpGzD2ebkVdZYYJgDA6xuQahcVukfjt3oYUbaHzLzKqLYFXgJB+ztAKbnqZq+TjPs8j/OI/Fe70+a+8qq7fWFpE5bfieq7Lf6CtYYZz8VSgr/dr3qChPRT/ZV+g7mEcCKUY+pF+FPbWtv5QtBJWQ5SAx6GinY1IVUdrBrj92vPfEg5E54vKO+Yac2jpC2uxFG7Vb+2WR0BK6bcb6f1amsv5uPtfe7FSnBAhoeAhR7jvRA9ekR/lnyt+I+6vVUH8vFbxa2L/dlj0hsUKs80mpkFbntq+GSVuDnYBuy9jasDSeqwRbFRIORSDzxsccnCvq0JrGam3kM=
+    secure: aX1BM+cltrkmoM0Kolx6I38NzBSGBzlyWyN+jWT2XrGhaTNmSTK5hGOVviq17cY3eX6OYPrB5X0L8h+DjnPukSDE9QpPFJ9TMQ9rhwCaqk9Lgm+GnWE5tTreoVIa292v80jMwBDa+g7wXZAm5L93pCinBBefwoJzSESVXfDSA4CuvYreSRi9q2HF3tk/8cS8u9nsmdTPrViY9XyVPEjidpBGdnAw0pql16YwsHfzOSYLL4BfqPyOIMlAGeixtYwFc7ABTVMk4R+zBzJpvKiOZW09Q2P7TcRGZYVpyCl2Fwk9ty5EJ298EV/KfBt/WTk6jCXw65zYWR1rcS4VYu3ozt07QYg7MrA04S9oi07iE+qNWzIowuKcbMfCxuUgVssH44K6RXzarUegU23V9WAGOzQFxaLfhG06fxGRhtkR15U1KMH5ag/AiAJXosSfg7FJBMoAijLfcsprHT9odZMDilcHDJ4aqB2h3w9oEF9ByAkNNECv+/koWXw+FgFWu5EP9G8WBRlHHuKGBjZc6Ke2bZr4S44QB++a0vXBhIc/gAOlZR11snYLCSkvhIyTrM/3lJmfWoe6f1fmTDYlRUCXvL5SMfAFk6JoZb4D3biPAEA81X9HVGRH+gO6ObhM9e+49jCmYhXPs90w5E+Pvqax6KEpCW7f7S+yvzLucSStkIM=
   file_glob: true
   file: products/*
   skip_cleanup: true
