@@ -14,7 +14,7 @@ sh autogen.sh
 
 if [ $target = "x86_64-apple-darwin14" ]; then
     # work around lack of C++11 support on MacOS target (BinaryBuilder.jl#214)
-    ./configure --prefix=$prefix --host=${target} --without-docs --disable-libunwind --disable-perf --disable-eventfd --without-gcov --disable-curve-keygen ax_cv_cxx_compile_cxx11__std_gnupp11=no ax_cv_cxx_compile_cxx11__std_gnupp0x=no CXX="g++ -std=c++03"
+    ./configure --prefix=$prefix --host=${target} --without-docs --disable-libunwind --disable-perf --disable-eventfd --without-gcov --disable-curve-keygen ax_cv_cxx_compile_cxx11__std_gnupp11=no ax_cv_cxx_compile_cxx11__std_gnupp0x=no CXX="clang++ -std=c++03"
 else
     ./configure --prefix=$prefix --host=${target} --without-docs --disable-libunwind --disable-perf --disable-eventfd --without-gcov --disable-curve-keygen
 fi
