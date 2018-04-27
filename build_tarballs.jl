@@ -19,7 +19,7 @@ make && make install
 platforms = supported_platforms() # build on all supported platforms
 
 # FreeBSD doesn't work yet: BinaryBuilder.jl#232
-platforms = filter!(!(p isa FreeBSD), platforms)
+platforms = filter!(p -> !(p isa FreeBSD), platforms)
 
 # The products that we will ensure are always built
 products(prefix) = [
