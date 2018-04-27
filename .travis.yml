@@ -21,6 +21,11 @@ env:
     - PART=2/3
     - PART=3/3
 sudo: required
+jobs:
+  include:
+    - stage: regenerate build.jl
+      script: julia build_tarballs.jl --only-buildjl
+      if: tag IS present
 before_script:
 - julia -e 'Pkg.clone("https://github.com/JuliaPackaging/BinaryProvider.jl")'
 - julia -e 'Pkg.clone("https://github.com/JuliaPackaging/BinaryBuilder.jl"); Pkg.build()'
