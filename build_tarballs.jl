@@ -21,17 +21,6 @@ platforms = supported_platforms() # build on all supported platforms
 # FreeBSD doesn't work yet: BinaryBuilder.jl#232
 platforms = filter!(p -> !(p isa FreeBSD), platforms)
 
-# BinaryBuilder.jl#233
-i = Compat.findlast(x -> startswith(x, "--part="), ARGS)
-if i !== nothing
-    p = parse.(Int, split(ARGS[i][8:end], '/'))
-    (length(p) == 2 && p[2] > 0 && 1 ≤ p[1] ≤ p[2]) || error("invalid argument ", ARGS[i])
-    n = (length(platforms) + p[2]-1) ÷ p[2]
-    platforms = platforms[n*(p[1]-1)+1:min(end,n*p[1])]
-end
-filter!(x -> !startswith(x, "--part="), ARGS)
-newARGS = filter!(x -> !startswith(x, "--part="), ARGS)
-
 # The products that we will ensure are always built
 products(prefix) = [
     LibraryProduct(prefix, "libzmq", :libzmq),
@@ -42,4 +31,4 @@ dependencies = [
 ]
 
 # Build the tarballs, and possibly a `build.jl` as well.
-build_tarballs(newARGS, "ZMQ", sources, script, platforms, products, dependencies)
+build_tarballs(ARGS, "ZMQ", sources, script, platforms, products, dependencies)
