@@ -10,8 +10,11 @@ sources = [
 script = raw"""
 cd $WORKSPACE/srcdir/libzmq
 sh autogen.sh
-./configure --prefix=$prefix --host=${target} --without-docs --disable-libunwind --disable-perf --disable-eventfd --without-gcov --disable-curve-keygen
-make && make install
+./configure --prefix=$prefix --host=${target} \
+    --without-docs --disable-libunwind --disable-perf \
+    --disable-eventfd --without-gcov --disable-curve-keygen
+make -j${nproc}
+make install
 """
 
 # These are the platforms we will build for by default, unless further
