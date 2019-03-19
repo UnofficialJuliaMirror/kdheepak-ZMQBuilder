@@ -3,7 +3,7 @@ using BinaryBuilder, Compat
 # Collection of sources required to build ZMQ
 sources = [
     "https://github.com/zeromq/libzmq.git" =>
-    "d062edd8c142384792955796329baf1e5a3377cd", # v4.2.5
+    "2cb1240db64ce1ea299e00474c646a2453a8435b", # v4.3.1
 ]
 
 # Bash recipe for building across all platforms
