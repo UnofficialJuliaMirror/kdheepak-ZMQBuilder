@@ -12,7 +12,8 @@ cd $WORKSPACE/srcdir/libzmq
 sh autogen.sh
 ./configure --prefix=$prefix --host=${target} \
     --without-docs --disable-libunwind --disable-perf --disable-Werror \
-    --disable-eventfd --without-gcov --disable-curve-keygen
+    --disable-eventfd --without-gcov --disable-curve-keygen \
+    CXXFLAGS="-g -O2 -fms-extensions"
 make -j${nproc}
 make install
 """
