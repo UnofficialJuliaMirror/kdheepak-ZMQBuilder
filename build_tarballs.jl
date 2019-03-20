@@ -31,4 +31,4 @@ dependencies = [
 ]
 
 # Build the tarballs, and possibly a `build.jl` as well.
-build_tarballs(ARGS, "ZMQ", sources, script, platforms, products, dependencies)
+build_tarballs(ARGS, "ZMQ", v"4.3.1", sources, script, platforms, products, dependencies)
