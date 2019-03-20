@@ -1,4 +1,4 @@
-using BinaryBuilder, Compat
+using BinaryBuilder
 
 # Collection of sources required to build ZMQ
 sources = [
