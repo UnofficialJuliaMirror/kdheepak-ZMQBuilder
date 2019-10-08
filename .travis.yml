@@ -15,48 +15,46 @@ env:
   global:
   - BINARYBUILDER_DOWNLOADS_CACHE=downloads
   - BINARYBUILDER_AUTOMATIC_APPLE=true
-  # Our build takes too long for one job, so split targets across multiple jobs
   matrix:
-    - PART=1/20
-    - PART=2/20
-    - PART=3/20
-    - PART=4/20
-    - PART=5/20
-    - PART=6/20
-    - PART=7/20
-    - PART=8/20
-    - PART=9/20
-    - PART=10/20
-    - PART=11/20
-    - PART=12/20
-    - PART=13/20
-    - PART=14/20
-    - PART=15/20
-    - PART=16/20
-    - PART=17/20
-    - PART=18/20
-    - PART=19/20
-    - PART=20/20
+  - PART=1/20
+  - PART=2/20
+  - PART=3/20
+  - PART=4/20
+  - PART=5/20
+  - PART=6/20
+  - PART=7/20
+  - PART=8/20
+  - PART=9/20
+  - PART=10/20
+  - PART=11/20
+  - PART=12/20
+  - PART=13/20
+  - PART=14/20
+  - PART=15/20
+  - PART=16/20
+  - PART=17/20
+  - PART=18/20
+  - PART=19/20
+  - PART=20/20
 sudo: required
 jobs:
   include:
-    - stage: regenerate build.jl
-      script: julia build_tarballs.jl --only-buildjl
-      if: tag IS present
+  - stage: regenerate build.jl
+    script: julia build_tarballs.jl --only-buildjl
+    if: tag IS present
 before_script:
 - julia -e 'import Pkg; Pkg.clone("https://github.com/JuliaPackaging/BinaryProvider.jl")'
-- julia -e 'import Pkg; Pkg.clone("https://github.com/JuliaPackaging/BinaryBuilder.jl"); Pkg.build()'
+- julia -e 'import Pkg; Pkg.clone("https://github.com/JuliaPackaging/BinaryBuilder.jl");
+  Pkg.build()'
 script:
 - julia build_tarballs.jl --part=$PART
 deploy:
   provider: releases
   api_key:
-      # Note; this api_key is only valid for JuliaInterop/ZMQBuilder; you need
-      # to make your own: https://docs.travis-ci.com/user/deployment/releases/
-    secure: aX1BM+cltrkmoM0Kolx6I38NzBSGBzlyWyN+jWT2XrGhaTNmSTK5hGOVviq17cY3eX6OYPrB5X0L8h+DjnPukSDE9QpPFJ9TMQ9rhwCaqk9Lgm+GnWE5tTreoVIa292v80jMwBDa+g7wXZAm5L93pCinBBefwoJzSESVXfDSA4CuvYreSRi9q2HF3tk/8cS8u9nsmdTPrViY9XyVPEjidpBGdnAw0pql16YwsHfzOSYLL4BfqPyOIMlAGeixtYwFc7ABTVMk4R+zBzJpvKiOZW09Q2P7TcRGZYVpyCl2Fwk9ty5EJ298EV/KfBt/WTk6jCXw65zYWR1rcS4VYu3ozt07QYg7MrA04S9oi07iE+qNWzIowuKcbMfCxuUgVssH44K6RXzarUegU23V9WAGOzQFxaLfhG06fxGRhtkR15U1KMH5ag/AiAJXosSfg7FJBMoAijLfcsprHT9odZMDilcHDJ4aqB2h3w9oEF9ByAkNNECv+/koWXw+FgFWu5EP9G8WBRlHHuKGBjZc6Ke2bZr4S44QB++a0vXBhIc/gAOlZR11snYLCSkvhIyTrM/3lJmfWoe6f1fmTDYlRUCXvL5SMfAFk6JoZb4D3biPAEA81X9HVGRH+gO6ObhM9e+49jCmYhXPs90w5E+Pvqax6KEpCW7f7S+yvzLucSStkIM=
+    secure: SMuwob3lFSGCDbVuV56bEvvZVpWcC/HROoEFUPhs9HzUKByXhu+o2MYkwNllUCTNAqdzluYi8YSrKv5vk67SQ+3F51uz08AdcNXq/FzWo/+r6/4zywMefRuM0v51xKLAe5jw2hs3P5Vv87lFQjsDrGvNAOC7Gs9pfw1EqS4PmiPx3iG6vpZrnAsaN43u/iTeSMddP2wcI+GWZXToJjVUpcvZ9gokYCGYKuV+x5PhPl/G3R07OscndJWJFVDZOEonQs4aExzY10m8rTTfNd9aSU0YNjwLy6vkU2jqJa8ZRvsFOEMFivxmuhpNnBtyvsdxumA3m2zln8/Mm4GpSwD1Ajkzhl1ASHVBAuUo9zJTtgCjz6xwoojFRj+Hh4G4bujxcppfPKZAHtANE1DueaNVglUbnIbE0R/WyHRkZ9zRJpWBMhyvOvsygJe7oVPAKUf6csh37MiasFWDdnC/d42HJht0Ay/WosV1Qnh+u90gZoSho8wCbXHQCH99b69vYm+Qgh0fVzwK2ErLg3uCH8WO1WGZAn9MDSdf47Tjn5wlWOgRXbfcXYcoY7ZMdgfNPMRoj8TZ8CiAFxPqL5Zy08VmPxF6Unv4IRrU/KvpniZ52PtUsKSie9pQGmpI/kQ8aE1QwSwTIzbYZioUnSlXjVS58YX4DDcKnKN+DdHFIEdPa9w=
   file_glob: true
   file: products/*
   skip_cleanup: true
   on:
-    repo: JuliaInterop/ZMQBuilder
+    repo: kdheepak/ZMQBuilder
     tags: true
